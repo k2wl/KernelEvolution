@@ -54,6 +54,4 @@ ls -lh $RAMFS_TMP.cpio
 gzip -9 $RAMFS_TMP.cpio
 cd -
 
-nice -n 10 make -j8 zImage || exit 1
-
 ./mkbootimg --kernel $KERNELDIR/arch/arm/boot/zImage --ramdisk $RAMFS_TMP.cpio.gz --board baffin --base 0x50000000 --pagesize 4096 -o $KERNELDIR/booti9105p.img
