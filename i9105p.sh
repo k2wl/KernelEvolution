@@ -11,7 +11,7 @@ RAMFS_TMP="/tmp/ramfs-source"
 
 if [ ! -f $KERNELDIR/.config ];
 then
-  make i9082_defconfig
+  make i9105p_defconfig
 fi
 
 . $KERNELDIR/.config
@@ -56,4 +56,4 @@ cd -
 
 nice -n 10 make -j8 zImage || exit 1
 
-./mkbootimg --kernel $KERNELDIR/arch/arm/boot/zImage --ramdisk $RAMFS_TMP.cpio.gz --board baffin --base 0x50000000 --pagesize 4096 -o $KERNELDIR/booti9082.img
+./mkbootimg --kernel $KERNELDIR/arch/arm/boot/zImage --ramdisk $RAMFS_TMP.cpio.gz --board baffin --base 0x50000000 --pagesize 4096 -o $KERNELDIR/booti9105p.img
